@@ -10,12 +10,40 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+struct Node{
+struct Node *next; char data;
+}*head;
+void search(char data)
+{
+struct Node *ptr; char item=data; int i=0,flag;
+ptr = head; if(ptr == NULL)
+{
+printf("Empty List\n");
+}
+else
+{
+while (ptr!=NULL)
+{
+if(ptr->data == item)
+{
+printf("item %c found at location %d ",item,i+1); flag=0;
+}
+i++;
+ptr = ptr -> next;
+}
+if(flag!=0)
+{
+printf("Item not found\n");
+}
+}
 
+}
+ 
+```
 Output:
 
-//paste your output here
-
+<img width="459" height="321" alt="image" src="https://github.com/user-attachments/assets/8ca8f096-c193-4349-8510-8bd5b75317fa" />
 
 
 Result:
@@ -33,12 +61,29 @@ Algorithm:
 4.	Call the insert function and perform other linked list operations as needed.
  
 Program:
+```
+struct Node{ char data;
+struct Node *next;
+}*head;
 
-//type your code here
-
+void insert(char data)
+{
+struct Node *n=(struct Node*)malloc(sizeof(struct Node)); struct Node *temp;
+if(head==NULL)
+{
+head=n;
+n->data=data; n->next=NULL; temp=head; return;
+}
+while(temp->next!=NULL)
+{
+temp=temp->next;
+}
+n->data=data; n->next=NULL; temp->next=n;
+}
+```
 Output:
 
-//paste your output here
+<img width="304" height="276" alt="image" src="https://github.com/user-attachments/assets/09f27b54-950a-4a93-868a-946325b06e1d" />
 
  
 Result:
@@ -57,12 +102,27 @@ Algorithm:
 4.	Move to the next node by updating the temp pointer to point to the next node (temp = temp->next).
  
 Program:
+```
+struct Node
+{
+struct Node *prev; struct Node *next; int data;
+}*head;
+void display()
+{
+struct Node *temp; temp=head; while(temp!=0)
+{
+printf("%d ",temp->data); temp=temp->next;
+}
 
-//type your code here
+
+
+}
+```
 
 Output:
 
-//paste your output here
+<img width="254" height="309" alt="image" src="https://github.com/user-attachments/assets/72769167-d57c-4c74-86ca-0980e03d051e" />
+
 
 
 Result:
@@ -83,11 +143,37 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+struct Node
+{
+struct Node *prev; struct Node *next; float data;
+}*head;
+void insert(float data)
+{
+
+struct Node *n=(struct Node*)malloc(sizeof(struct Node)); struct Node *temp;
+if(head==NULL)
+{
+head=n;
+n->data=data; n->next=NULL; n->prev=NULL; temp=head;
+}
+else
+{
+while(temp->next!=NULL)
+{
+temp=temp->next;
+}
+n->data=data; n->next=NULL; n->prev=temp; temp->next=n;
+}
+
+
+}
+ 
+```
 
 Output:
 
-//paste your output here
+<img width="309" height="414" alt="image" src="https://github.com/user-attachments/assets/68b2f1d5-6c1a-4403-ab44-b35e467e3306" />
 
 
 Result:
@@ -125,12 +211,35 @@ o	If the element is not found in any node, print a message indicating the elemen
 
 Program:
 
-//type your code here
+```
+struct Node{
+    char data; 
+    struct Node *next;
+}*head;
+void delete()
+{
+    if(head==NULL){
+        printf("List is empty\n");
+        return;
+    }
+    else if(head->next==NULL){
+        head=NULL;
+        free(head);
+        printf("Node deleted from the begining ...\n");
+    }
+    else{
+        struct Node *ptr;
+        ptr=head;
+        head=head->next;
+        free(ptr);
+        printf("Node deleted from the begining ...\n");
+    }
+}
+```
 
 Output:
 
-//paste your output here
-
+<img width="749" height="493" alt="image" src="https://github.com/user-attachments/assets/ed4ed046-3cac-4682-977c-b0dbfbba54f1" />
 
 
 
